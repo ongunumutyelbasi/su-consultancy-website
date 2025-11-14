@@ -555,6 +555,21 @@ margin: 0 auto;
 .services-contact-section {
     background-image: linear-gradient(to right, #242865, #67cce4);
     color: var(--text-light);
+    text-align: center;
+    padding: 25px 50px;
+}
+
+.services-contact-section h2 {
+    text-align: left;
+    font-size: 1.5em;
+    color: var(--primary-color);
+    font-weight: 530;
+    margin-bottom: 50px;
+}
+
+.contact-form-wrapper {
+    background-image: linear-gradient(to right, #242865, #67cce4);
+    color: var(--text-light);
     text-align: left;
     padding: 25px 50px;
 }
