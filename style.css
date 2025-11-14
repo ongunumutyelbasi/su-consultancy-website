@@ -552,6 +552,13 @@ display: block;
 margin: 0 auto;
 }
 
+.services-contact-section {
+    background-image: linear-gradient(to right, #242865, #67cce4);
+    color: var(--text-light);
+    text-align: left;
+    padding: 25px 50px;
+}
+
 
 /* ------------- CLIENTS PAGE ---------------------------------------- */
 

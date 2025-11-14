@@ -84,11 +84,61 @@
         </div>
     </section>
 
-    <section class="contact-form-section">
+    <section class="services-contact-section">
         <div class="contact-form-wrapper">
             <h2>Discover how we can help!</h2>
             <p>Get in touch with us today to discuss how we can support your business needs.</p>
-            
+            <form class="contact-form" id="contact-form" onsubmit="submitForm(event)">
+                    
+                    <!-- WRAPPER: Contains all the input fields and the SEND button -->
+                    <div id="form-fields">
+                        <!-- 2-COLUMN GRID SECTION -->
+                        <div class="form-grid-container">
+                            
+                            <div>
+                                <label for="fname">First name:</label>
+                                <input type="text" id="fname" name="fname" required>
+                            </div>
+                            
+                            <div>
+                                <label for="lname">Last name:</label>
+                                <input type="text" id="lname" name="lname" required>
+                            </div>
+                            
+                            <div>
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div>
+                                <label for="subject">Subject:</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+
+                        </div>
+                        <!-- FULL-WIDTH MESSAGE TEXTAREA -->
+                        <div class="form-full-width">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <!-- FULL-WIDTH BUTTON -->
+                        <div class="form-full-width">
+                            <!-- Added ID for easier JS manipulation -->
+                            <input type="submit" value="SEND MESSAGE" class="btn-submit" id="submit-button">
+                        </div>
+                    </div>
+                    
+                    <!-- SUCCESS MESSAGE BLOCK (Initially hidden) -->
+                    <div id="success-message" style="display: none; text-align: center; padding: 40px; background-color: #f0f8ff; border: 1px solid #00b8d2; border-radius: 8px;">
+                        <div class="success-content">
+                            <div style="margin-bottom: 15px;">
+                                <svg data-lucide="check-circle" style="width: 50px; height: 50px; color: #00b8d2;"></svg>
+                            </div>
+                            <h3>Message Sent Successfully!</h3>
+                            <p>Thank you for reaching out. We have received your inquiry and will be in touch as soon as possible.</p>
+                        </div>
+                    </div>
+                </form>
         </div>
 
     </section>
