@@ -571,7 +571,7 @@ margin: 0 auto;
     background-image: linear-gradient(to right, #242865, #67cce4);
     color: var(--text-light);
     text-align: left;
-    padding: 25px 50px;
+    padding: 0px 0px;
 }
 
 
