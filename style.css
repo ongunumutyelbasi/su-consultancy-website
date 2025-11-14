@@ -1,0 +1,1470 @@
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+
+/* --- Global Reset & Variables --- */
+:root {
+    --primary-color: #0f3148; /* Dark Blue */
+    --accent-color: #00b8d2; /* Blue Accent */
+    --background-light: #f4f4f4;
+    --background-dark: #333;
+    --light-blue: rgb(246, 251, 255);
+    --text-dark: #333;
+    --text-soft-dark: #4c6171;
+    --text-light: #fff;
+    --font-family: 'Onest', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- Header Styling --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    
+    /* FIX: Change how space is distributed */
+    display: flex;
+    justify-content: space-between; /* Keep the logo on the far left */
+    align-items: center;
+    padding: 20px 50px;
+    background-color: var(--text-light);
+    border-bottom: 1px solid #ddd;
+    transition: 0.3s,
+}
+
+.main-header.header--scrolled {
+    
+    /* 1. SHRINK THE HEADER */
+    /* Reduce the top and bottom padding to make the header visually smaller */
+    /* padding: 10px 50px; */
+
+    /* 2. OPTIONAL: Add a distinguishing feature */
+    /* Add a shadow or change the background slightly */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    /* background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+}
+
+.menu-group {
+    display: flex;
+    align-items: center; /* Vertically aligns the button with the nav links */
+}
+
+/* Optional: Add a small space between the last nav item and the button */
+.menu-group nav {
+    margin-right: 20px;
+}
+
+/* --- Offset for Fixed Header (About Us Fix) --- */
+.section-offset {
+    /* FIX: Using margin-top to eliminate the visible gap under the fixed header */
+    margin-top: 80px;
+}
+
+/* Logo and Nav Styles (No change) */
+.logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.logo-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-tagline {
+    border-left: 1.5px solid var(--accent-color);
+    padding-left: 15px;
+    line-height: 1.1;
+    font-size: 1.1em;
+    font-weight: 250;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-soft-dark);
+    margin-left: 30px;
+    font-weight: 250;
+    font-size: 1.0em;
+    transition: color 0.3s,
+    background-size 0.3s ease-out;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+}
+nav ul li a:hover {
+    background-size: 100% 1px;
+}
+
+nav ul li a.active {
+    color: var(--accent-color);
+    background-size: 100% 1px !important;
+}
+
+/* --- Custom Contact Button Style --- */
+.btn-contact {
+    /* Set display for sizing and placement */
+    display: inline-flex; 
+    
+    /* Button appearance */
+    background-image: linear-gradient(to right, #242865, #67cce4);
+    color: var(--text-light); /* White text */
+    text-decoration: none; /* Remove underline */
+    
+    /* Spacing and shape */
+    padding: 8px 20px;
+    border-radius: 999px; /* Pill shape */
+    border: 1px solid var(--primary-color); /* Matches the background */
+    
+    /* Text style */
+    font-weight: 450; 
+    font-size: 0.9em;
+    
+    /* Animation for smooth interaction */
+    transition: all 0.3s ease;
+
+    align-items: center;
+    background-color: white;
+
+    vertical-align: middle;
+
+    gap: 6px;
+}
+
+/* Hover Effect (Optional but recommended) */
+.btn-contact:hover {
+    background-image: linear-gradient(to right, #ffffff, #ffffff);
+    color: var(--primary-color);
+    /* transform: translateY(0px); /* Slight lift effect */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+}
+
+.btn-contact [data-lucide] {
+    color: currentColor;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-contact [data-lucide] svg {
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Hero and Page Title Styles (No change) */
+.hero-section {
+    /* Retain original padding and text styles */
+    /* background-color: var(--primary-color); <--- REMOVE OR COMMENT OUT */
+    min-height: 300px;
+    color: var(--text-light);
+    text-align: left;
+    padding: 95px 50px;
+    padding-top: 200px;
+    
+    /* 1. CRUCIAL: Set positioning context for children */
+    position: relative; 
+    
+    /* 2. Ensure content goes over the video/overlay */
+    z-index: 2; 
+    overflow: hidden; /* Important to keep video contained */
+}
+
+.video-background-wrap {
+    position: absolute; /* Keep this for anchoring to the viewport */
+    top: 0;
+    left: 0;
+    /* 1. Limit the width/height to the hero section's height (800px) */
+    width: 100%;
+    /* Use the same min-height defined in .hero-section */
+    height: 100%; 
+    
+    /* This ensures the video wrapper is hidden until the user scrolls past it */
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none; /* Prevents interaction with the video */
+}
+
+/* Video: Make it cover the container and maintain aspect ratio */
+/* Video: Make it cover the container and maintain aspect ratio */
+.video-background-wrap video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    
+    position: fixed;
+    top: 0;
+    left: 50%;
+    
+    object-fit: cover; 
+
+    transform: translateX(-50%) scale(1.05);
+    
+    /* CRITICAL FIX: Optimize for constant transform changes */
+    will-change: transform; 
+    pointer-events: none;
+}
+
+/* Color Overlay: Sits on top of the video */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Sits on top of the video (z-index: 1) but below the text (z-index: 3) */
+    
+    /* SET THE COLOR AND OPACITY HERE */
+    background-color: var(--primary-color); /* Dark Blue */
+    opacity: 0.92; /* Adjust for transparency */
+    pointer-events: none;
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section .hero-button-group {
+    position: relative;
+    z-index: 3; 
+}
+
+.hero-section h1 {
+    font-weight: 350;
+    font-size: 4.0em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-weight: 250;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    line-height: 1.3;
+}
+
+.page-title-section {
+    background-image: linear-gradient(to right, #242865, #67cce4);
+    color: var(--text-light);
+    text-align: left;
+    padding: 25px 50px;
+}
+
+.page-title-section h1 {
+    font-weight: 550;
+    font-size: 3.5em;
+    line-height: 1.2;
+}
+
+.page-title-section p {
+    font-weight: 250;
+    font-size: 1.4em;
+    line-height: 1.2;
+    color: var(--accent-color);
+}
+
+/* Button Styles (No change) */
+.btn1, .btnSquare {
+    display: inline-flex;
+    align-items: center;
+    background-color: white;
+    color: var(--primary-color);
+    border: 1px solid white;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 450;
+    font-size: 0.9em;
+    transition: all 0.3s;
+    vertical-align: middle;
+}
+
+.btn1 {
+    padding: 6px 20px;
+    gap: 6px;
+}
+
+.btnSquare {
+    padding: 6px 6px;
+    gap: 0px;
+}
+
+.hero-button-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.btn1 [data-lucide], .btnSquare [data-lucide] {
+    color: currentColor;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn1 [data-lucide] {
+    margin-left: 5px;
+}
+
+.btn1 [data-lucide] svg, .btnSquare [data-lucide] svg {
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.btn1:hover [data-lucide] {
+    transform: rotate(-45deg);
+}
+
+
+/* ------------------------------------------------------------------- */
+/* --- Services Section (Home Page/Blog Container) --- */
+/* RESTORED TO ORIGINAL: No changes here */
+.services-section {
+    padding: 30px 50px;
+    background-image: linear-gradient(to bottom, var(--light-blue), white);
+    text-align: center;
+}
+
+.services-section h2 {
+    text-align: left;
+    font-size: 2.3em;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-weight: 530;
+    line-height: 1.2;
+}
+
+.services-section h3 {
+    text-align: left;
+    font-size: 1.0em;
+    margin-bottom: 0px;
+    color: var(--accent-color);
+    font-weight: 450;
+    line-height: 1.2;
+}
+
+/* Home Page Service Grid (No change) */
+.services-section .service-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: stretch;
+}
+
+.services-section .service-card {
+    background-color: var(--light-blue);
+    padding: 20px;
+    border-radius: 8px;
+    border: 0.8px solid #dedede;
+    flex-basis: 23%;
+    transition: transform 0.3s;
+}
+
+.services-section .service-card h3 {
+    font-size: 1.8em;
+}
+
+.service-card p .accent-services {
+    color: var(--accent-color);
+    font-weight: 450;
+}
+
+/* ------------------------------------------------------------------- */
+
+/* Services Page Layout (No change) */
+.services-content-wrapper {
+    padding: 0px 0px 0px 30px;
+    background-color: var(--light-blue);
+}
+
+.services-layout {
+display: flex;
+flex-wrap: wrap;
+gap: 30px;
+align-items: stretch;
+}
+
+.services-main-content {
+padding: 30px 0px 30px 0px;
+flex-grow: 4;
+flex-basis: 600px;
+}
+
+.services-main-content .service-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;
+justify-content: start;
+height: 100%;
+}
+
+.services-main-content .service-card {
+flex-basis: auto;
+background-color: white;
+border: 0.8px solid #bcbcbc;
+}
+
+.services-main-content .service-icon {
+margin-bottom: 5px;
+display: block;
+text-align: left;
+}
+
+.services-main-content .service-icon img {
+width: 110px;
+height: 110px;
+display: block;
+margin: 0 0 0 0;
+}
+
+.services-sidebar {
+flex-grow: 1;
+flex-basis: 300px;
+background-color: white;
+padding: 20px;
+border: 0.8px solid #bcbcbc;
+border-radius: 8px;
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+.services-sidebar-image {
+flex-grow: 1;
+flex-basis: 300px;
+background-image: url('mediacity_12May21-7617.jpg.avif');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+min-height: 400px;
+border-radius: 0px;
+}
+
+.services-sidebar h2 {
+color: var(--primary-color);
+font-size: 1.6em;
+font-weight: 530;
+margin-bottom: 10px;
+}
+.services-sidebar p {
+color: var(--text-dark);
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.services-sidebar .btn1 {
+background-color: var(--accent-color);
+color: white;
+font-weight: 550;
+border-color: var(--accent-color);
+justify-content: center;
+}
+.services-sidebar .btn1:hover {
+background-color: var(--primary-color);
+border-color: var(--primary-color);
+}
+
+/* Generic Service Card Styles (No change) */
+.service-card {
+padding: 30px;
+border-radius: 8px;
+transition: transform 0.3s;
+}
+
+.service-card h3 {
+text-align: left;
+font-size: 1.5em;
+color: var(--primary-color);
+font-weight: 530;
+margin-bottom: 10px;
+}
+
+.service-card p {
+text-align: left;
+color: var(--text-soft-dark);
+line-height: 1.4;
+font-weight: 300;
+}
+
+.service-card a {
+   /* Basic Link Styling */
+    color: var(--accent-color); 
+    font-weight: 350; 
+    
+    /* 1. REMOVE standard underline */
+    text-decoration: none; 
+    
+    /* 2. ADD Transition for smooth animation */
+    transition: color 0.3s, background-size 0.3s ease-out;
+    
+    /* 3. SET UP the underline (starts hidden) */
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%; /* Position the line at the bottom */
+    background-size: 0% 1px; /* The line starts at 0% width and 1px height */
+}
+
+/* Optional: Add a hover effect to give users feedback */
+.service-card a:hover {
+    /* 1. ANIMATE the underline to 100% width */
+    background-size: 100% 1px !important; /* Use !important if necessary to override inline styles */
+}
+
+.service-icon {
+margin-bottom: 5px;
+display: block;
+text-align: center;
+}
+
+.service-icon img {
+width: 120px;
+height: 120px;
+display: block;
+margin: 0 auto;
+}
+
+
+/* ------------- CLIENTS PAGE ---------------------------------------- */
+
+.clients-section {
+    /* Large padding for clear section separation, using your existing padding values */
+    padding: 30px 30px;
+    background-color: var(--background-light); /* Light gray background */
+    text-align: center;
+}
+
+.clients-grid {
+    /* CSS Grid for a clean, responsive layout */
+    display: grid;
+    /* Auto-fit columns, ensuring a minimum width of 280px for the card */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 10px;
+    max-width: 1200px; 
+    margin: 0 auto; /* Center the grid container */
+}
+
+.clients-card {
+    background-color: var(--light-blue); /* Background color for card */
+    padding: 0px;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft initial shadow */
+    
+    /* Smooth transition for hover effects */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+.clients-card:hover {
+    /* Subtle lift on hover */
+    /* transform: translateY(-5px); */
+    /* Slightly stronger shadow for depth */
+    box-shadow: 0 0px 30px rgba(0, 184, 210, 0.25);
+}
+
+.clients-card h3 {
+    font-size: 1.8em;
+    font-weight: 550;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    line-height: 1.1;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.clients-card p {
+    font-size: 1.0em;
+    color: var(--text-soft-dark);
+    font-weight: 300;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+}
+
+.clients-logo-container {
+    /* Circle background for the logo/icon */
+    width: 100%;
+    height: auto;
+    margin: 0 auto 0px auto;
+    border-radius: 0%;
+
+    /* Use the accent color for a pop */
+    background-color: var(--accent-color);
+    
+    /* Center the image/icon inside the circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.clients-logo-container img {
+    /* Size the icon */
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    /* Assuming placeholder image is dark, this makes it white for contrast */
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(270deg) brightness(100%) contrast(100%);
+}
+
+.clients-button-group {
+    /* Activates flex layout to arrange buttons horizontally */
+    display: flex;
+    
+    /* Creates 15px of space between the buttons (replaces margin-right) */
+    gap: 15px;
+    
+    /* Adds separation between the buttons and the content above (e.g., the paragraph) */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    
+    /* Ensures the buttons wrap onto a new line if the screen is too narrow */
+    flex-wrap: wrap; 
+}
+
+.btnClient {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 450;
+    font-size: 0.75em;
+    transition: all 0.3s;
+    vertical-align: middle;
+}
+
+.btnClient {
+    padding: 3px 9px;
+    gap: 6px;
+}
+
+.btnClient:hover {
+    background-color: rgba(15, 49, 72, 0.07);
+}
+
+.btnClient [data-lucide] {
+    color: currentColor;
+    width: 15.5px;
+    height: 15.5px;
+    flex-shrink: 0;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btnClient [data-lucide] {
+    margin-left: 5px;
+}
+
+.btnClient:hover [data-lucide] {
+    transform: rotate(-45deg);
+}
+
+.btn1:hover, .btnSquare:hover {
+    background-color: transparent;
+    color: white;
+}
+
+/* Mobile Responsiveness for padding */
+@media (max-width: 600px) {
+    .clients-section {
+        padding: 40px 20px;
+    }
+}
+
+
+/* ------------------------------------------------------------------- */
+/* --- CLIENTS GRID SECTION STYLES (The core requirement) --- */
+/* ------------------------------------------------------------------- */
+
+.clients-section {
+    background-color: var(--color-background-light);
+    text-align: left;
+}
+
+.clients-grid {
+    /* Center the grid container and limit its max width */
+    max-width: var(--section-max-width);
+    margin: 0 auto;
+    
+    /* Using CSS Grid for a responsive, clean layout */
+    display: grid;
+    /* Default 1 column for mobile */
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 25px; /* Space between cards */
+}
+
+/* Tablet/Medium Screens: Switches to 2 columns */
+@media (min-width: 640px) {
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop/Large Screens: Switches to 3 columns */
+@media (min-width: 1024px) {
+    .clients-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.clients-grid p, h1, h2, h3 {
+    text-align: left;
+}
+/* Note: You may also want to ensure the card's logo is aligned left if the card content is left-aligned: */
+
+.clients-logo-container {
+    /* Remove 'margin: 0 auto' and align left */
+    margin: 0 0 20px 0;
+}
+
+
+/* ------------------------------------------------------------------- */
+
+.blog-posts-grid {
+display: flex;
+flex-wrap: wrap;
+align-items: stretch;
+gap: 20px;
+}
+
+.blog-posts-card {
+    background-color: var(--light-blue);
+    border: 0.8px solid #dedede;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 350px;
+    flex-basis: 280px;
+    flex-grow: 1;
+    transition: transform 0.3s;
+    overflow: hidden;
+}
+
+/* 💡 FIX 4: Ensure title alignment is consistent and prevent visual cutting */
+.blog-posts-card h3 {
+    text-align: left;
+    font-size: 1.5em;
+    margin-bottom: 10px; /* Keep this to separate from the paragraph */
+    color: var(--primary-color);
+    line-height: 1.2;
+    font-weight: 530;
+    /* Limit text to 3 lines and add ellipsis */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    flex-shrink: 0;
+}
+
+.blog-posts-card p {
+text-align: left;
+color: var(--text-soft-dark);
+line-height: 1.2;
+font-weight: 250;
+/* 💡 NEW: Allow paragraph to grow and shrink to fit remaining space */
+flex-grow: 1;
+flex-shrink: 1;
+/* If paragraph itself might overflow and you want ellipsis for it too */
+/* overflow: hidden;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical; */
+}
+
+.card-image {
+flex-grow: 0;
+flex-shrink: 0;
+height: 40%;
+overflow: hidden;
+border-top-left-radius: 8px;
+border-top-right-radius: 8px;
+}
+
+.card-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+
+.card-content {
+flex-grow: 1;
+flex-shrink: 0; /* Ensure content area does not shrink below its content needs */
+padding: 20px;
+min-height: 0; /* Allows content to shrink as much as needed */
+/* To explicitly prevent any overflow from the H3 from breaking out of this div */
+overflow: hidden;
+display: flex;
+flex-direction: column;
+}
+
+/* ------------------------------------------------------------------- */
+/* --- ABOUT US PAGE SECTIONS --- */
+/* ------------------------------------------------------------------- */
+
+/* Wrapper for spacing and background */
+.about-content-wrapper {
+padding: 0;
+background-color: var(--background-light);
+}
+
+/* Flexbox container for the 2 columns */
+.about-row.split-section,
+.founder-row.split-section {
+    display: flex;
+    align-items: stretch; /* Crucial: This makes the image column match the text column height */
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Column 2: Text Styling (applies to both split sections) */
+.split-text-container {
+    flex: 1 1 47%;
+    padding: 30px 40px;
+    background-image: linear-gradient(to bottom, var(--light-blue), white);
+}
+
+.split-text-container h2 {
+    color: var(--primary-color);
+    font-size: 1.6em;
+    line-height: 1.4;
+    font-weight: 550;
+    margin-bottom: 10px;
+}
+
+.split-text-container h2 .accent-founder-name {
+    color: var(--accent-color);
+    font-weight: 350;
+}
+
+.split-text-container p {
+    color: var(--text-soft-dark);
+    line-height: 1.4;
+    font-weight: 270;
+}
+
+.split-text-container p:first-child {
+    /* FIX: Prevents margin collapse from pushing content down */
+    margin-top: 0;
+}
+
+.split-text-container a {
+   /* Basic Link Styling */
+    color: var(--accent-color); 
+    font-weight: 350; 
+    
+    /* 1. REMOVE standard underline */
+    text-decoration: none; 
+    
+    /* 2. ADD Transition for smooth animation */
+    transition: color 0.3s, background-size 0.3s ease-out;
+    
+    /* 3. SET UP the underline (starts hidden) */
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%; /* Position the line at the bottom */
+    background-size: 0% 1px; /* The line starts at 0% width and 1px height */
+}
+
+/* Optional: Add a hover effect to give users feedback */
+.split-text-container a:hover {
+    /* 1. ANIMATE the underline to 100% width */
+    background-size: 100% 1px !important; /* Use !important if necessary to override inline styles */
+}
+
+/* --- CONTACT PAGE SPLIT SECTION STYLES (Image Centering Fix) --- */
+/* The layout for the parent .about-row.split-section should already be display: flex. */
+
+.split-contact-text-container {
+    flex: 0 0 55%; /* Takes the remaining 57% to complete the 100% split with the image */
+    padding: 40px 40px; 
+    /* background-image: linear-gradient(to top, var(--light-blue), white); */
+    background-color: white;
+}
+
+.split-contact-text-container h1 {
+    color: var(--accent-color);
+    font-size: 1.3em;
+    font-weight: 350;
+    margin-bottom: 5px;
+}
+
+.split-contact-text-container h2 {
+    color: var(--primary-color);
+    font-size: 3.5em;
+    line-height: 1.1;
+    font-weight: 350;
+    margin-bottom: 20px;
+}
+
+.split-contact-text-container p {
+    color: var(--text-soft-dark);
+    font-size: 1.1em;
+    line-height: 1.4;
+    font-weight: 270;
+}
+
+.accent-company-name {
+    /* 1. Core Typography */
+    font-weight: 600; /* Bold text */
+    color: var(--accent-color); /* White text color */
+}
+
+/* ---------------CONTACT PAGE IMAGE BLOCKS-------------------------------------- */
+
+.split-contact-image-container {
+    flex: 0 0 45%;
+    padding: 40px 40px;
+    
+    /* --- THE FIX: ADD FLEX PROPERTIES TO CENTER THE IMG --- */
+    display: flex;
+    justify-content: center; /* CORRECT: Centers content horizontally */
+    align-items: center; /* CORRECT: Centers content vertically */
+    
+    /* background-image: url('fish-swimming.jpg.avif'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 350px;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+}
+
+.split-contact-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--light-blue);
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.split-contact-image-container h2,
+.split-contact-image-container h3,
+.split-contact-image-container img {
+    /* Set positioning context and Z-index */
+    position: relative; 
+    z-index: 3; /* This must be higher than the overlay's z-index (which is 2 or 1) */
+}
+
+.split-contact-image-container img {
+    /* 1. Control the image size relative to its container (e.g., 80% of the split column) */
+    max-width: 100%; 
+    width: auto; /* Ensures it respects max-width while maintaining scale */
+    height: auto; /* Maintains the image's aspect ratio */
+    
+    /* 2. Control how the image content fits if the container size is fixed */
+    object-fit: contain; /* Changed to contain so the whole image is visible */
+    
+    /* 3. Optional: Add spacing above/below the image if needed */
+    margin-top: 0px; 
+    margin-bottom: 0px; 
+}
+
+/* ----------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------- */
+
+/* --- 1ST SECTION: BACKGROUND IMAGE (Original Style) --- */
+.split-image-container {
+    flex: 0 0 53%;
+    padding: 30px 40px;
+    background-image: url('image-by-christoffer-engstrom.jpg.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 350px;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+}
+
+.split-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.split-image-container h2,
+.split-image-container h3,
+.split-image-container img {
+    /* Set positioning context and Z-index */
+    position: relative; 
+    z-index: 3; /* This must be higher than the overlay's z-index (which is 2 or 1) */
+}
+
+.split-image-container img {
+    /* 1. Control the image size relative to its container (e.g., 80% of the split column) */
+    max-width: 70%; 
+    width: auto; /* Ensures it respects max-width while maintaining scale */
+    height: auto; /* Maintains the image's aspect ratio */
+    
+    /* 2. Optional: Control how the image content fits if the container size is fixed */
+    object-fit: contain; /* Ensures the whole image is visible without cropping */
+    
+    /* 3. Optional: Add spacing above/below the image if needed */
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    border: 3px solid #ff9cff;
+    border-radius: 8px;
+}
+
+.split-image-container h2 {
+    font-size: 1.2em;
+    color: var(--accent-color);
+    font-weight: 350;
+    margin-bottom: 5px;
+}
+
+.split-image-container h3 {
+    font-size: 3.0em;
+    color: var(--primary-color);
+    font-weight: 450;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+/* ------------------------------------------------------------------- */
+/* --- 2ND SECTION: FOUNDER IMAGE WITH GAPS (Fixed Scaling) --- */
+/* ------------------------------------------------------------------- */
+
+.founder-section-wrapper {
+    /* Sets the background color for the entire section (the 'gap' color) */
+    background-color: var(--primary-color); /* Dark Blue */
+    padding: 0px 0; /* Add top/bottom padding for separation */
+}
+
+.split-founder-image-container {
+    /* Container styles */
+    flex: 0 0 53%;
+    min-height: 350px;
+    /* Used to center the image if necessary, and define the 'gap' color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* This background color fills the padding/gap area */
+    background-color: var(--primary-color);
+}
+
+.split-founder-image-container img {
+    /* The padding creates the white gap/border */
+    padding: 40px;
+    /* FIX: Set height to auto to maintain aspect ratio and prevent stretching. */
+    width: 100%;
+    height: auto;
+    border-radius: 48px;
+    /* Ensures the whole image is visible (letterboxing if needed) */
+    object-fit: contain;
+    display: block;
+}
+
+.certifications-section-wrapper {
+    /* 1. Sets the color that will show in the "gaps" */
+    background-image: linear-gradient(to bottom, var(--light-blue), white);
+    
+    /* 2. Add padding to create space around the entire section, if desired */
+    padding: 20px 20px; 
+}
+
+.certifications-text-container {
+    width: 100%; /* Or auto */
+    text-align: center; /* Center the headline */
+    margin-bottom: 20px; /* Add space below the headline */
+}
+
+.certifications-text-container h2 {
+    color: white;
+    text-align: center;
+    font-size: 1.8em;
+    line-height: 1.4;
+    font-weight: 550;
+    margin-bottom: 10px;
+}
+
+.certifications-image-container {
+    display: flex;
+    gap: 30px; /* Space between images */
+    justify-content: center;
+    align-items: flex-start; /* Optional: Aligns images to the top if they have different heights */
+}
+
+.certifications-image-container img {
+    /* --- Aspect Ratio & Sizing FIXES --- */
+    
+    /* 1. Set a responsive width for the horizontal layout. 
+       45% is ideal for two images with a 30px gap in between. */
+    width: 45%; 
+    max-width: none; /* Ensure the new width takes precedence */
+    
+    /* 2. CRUCIAL: Set height to 'auto' to maintain the original ratio. */
+    height: auto; 
+    
+    /* Existing border rules */
+    margin-bottom: 0px; 
+    border: 5px solid var(--accent-color); 
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); */
+}
+
+.certificates-row {
+    background-color: var(--primary-color);
+    margin: 0 0px; 
+    padding: 30px 0px;
+    
+    /* ADD THIS to make children stack vertically */
+    display: flex;
+    flex-direction: column;
+    
+    /* Optional: Center everything horizontally */
+    align-items: center; 
+}
+
+/* --- Responsive Layout for Mobile --- */
+@media (max-width: 800px) {
+    .about-row.split-section,
+    .founder-row.split-section { /* Apply stacking to both rows */
+    flex-direction: column;
+}
+
+.split-image-container,
+.split-founder-image-container {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.split-text-container {
+    padding: 30px 20px;
+}
+}
+
+/* --- FORM STYLES (The Core Solution) --- */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between the grid section, message, and button */
+}
+
+.form-grid-container {
+    /* This is the 2-column layout container */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px; /* Space between fields */
+}
+
+/* Style for containers holding label/input */
+.form-grid-container > div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for the full-width elements (Message and Button) */
+.form-full-width {
+    grid-column: 1 / -1; /* Spans from the first column line to the last */
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-weight: 250;
+    margin-bottom: 5px;
+    color: var(--text-soft-dark);
+    font-size: 0.95em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 250;
+    width: 100%;
+    transition: border-color 0.3s;
+    background-color: white;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+/* CRITICAL: Resizable Textarea */
+.contact-form textarea {
+    resize: vertical; /* Allows resizing only vertically (height) */
+    min-height: 150px;
+}
+
+/* Submit Button Styling */
+.btn-submit {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, #242865, #67cce4);
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 999px;
+    border: none;
+    font-weight: 550;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.btn-submit:hover {
+    opacity: 0.9;
+}
+
+#form-fields {
+    /* Explicitly make the internal container a flex column */
+    display: flex;
+    flex-direction: column;
+    /* Apply the desired 20px gap between the grid, message, and button blocks */
+    gap: 20px; 
+}
+
+/* --- SUCCESS MESSAGE STYLES --- */
+#success-message {
+    display: none; /* Hidden by default, shown by JavaScript */
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 8px;
+    background-color: var(--light-blue);
+    border: 1px solid var(--accent-color);
+    margin-top: 20px;
+}
+
+#success-message .icon-lg {
+    width: 50px;
+    height: 50px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+#success-message h3 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-align: center;
+}
+
+#success-message p {
+    color: var(--text-dark);
+    font-weight: 300;
+}
+
+/* --- Footer Styling --- */
+
+/* --- Footer Layout Container --- */
+.footer-section {
+    background-image: linear-gradient(to bottom, var(--light-blue), white);
+    padding: 2rem 1rem 2rem;
+    color: var(--color-text-default);
+}
+
+.footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    /* Default mobile layout: 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+/* Tablet/Desktop layout: 4 to 5 columns */
+@media (min-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr 1fr 2fr; /* Logo, Links, Contact, CTA */
+    }
+}
+
+/* --- Individual Columns and Links --- */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-column a, .footer-column p {
+    text-decoration: none;
+    color: var(--color-text-default);
+    font-weight: 250;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.footer-column a:hover {
+    color: var(--color-accent-light);
+    text-decoration: underline;
+}
+
+.footer-heading {
+    font-weight: 650; /* Updated font weight */
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--accent-color); /* Using general accent color for now */
+    text-transform: uppercase;
+}
+
+/* Special case for Navigation heading to match image color */
+.footer-column .nav-heading {
+    color: var(--color-primary-dark);
+}
+
+/* --- Logo Placeholder --- */
+.footer-logo {
+    grid-column: span 2; /* Spans 2 columns on mobile */
+    width: 80px;
+    height: 80px;
+    color: var(--color-primary-dark);
+}
+@media (min-width: 768px) {
+     .footer-logo {
+        grid-column: span 1; /* Only 1 column on desktop */
+    }
+}
+
+/* --- Call to Action (CTA) Column --- */
+.cta-column {
+    grid-column: 1 / -1; /* Spans full width on mobile */
+    text-align: left;
+}
+
+.cta-column p {
+    font-size: 0.95rem;
+    font-weight: 250;
+}
+
+@media (min-width: 768px) {
+    .cta-column {
+        grid-column: auto;
+        justify-self: end;
+    }
+}
+
+/* * NEW STYLES FOR 3-COLUMN LAYOUT  */
+.footer-bottom-bar {
+    /* Using specific colors provided by the user */
+    background-image: linear-gradient(to right, #242865, #67cce4);
+    /* Set horizontal padding to 0 so the background spans edge-to-edge */
+    padding: 1rem 0; 
+    color: var(--color-footer-text-light);
+}
+
+/* --- Bottom Bar Content (Controls Alignment) --- */
+.bottom-bar-content {
+    /* Added horizontal padding so content doesn't stick to screen edges */
+    padding: 0 1.5rem; 
+    width: 100%; 
+    box-sizing: border-box;
+    
+    /* Default Mobile: Stacked Layout (Fallback for small screens) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem; /* Space between stacked items */
+}
+
+/* Desktop/Tablet: Three identical columns using Grid and Explicit Placement */
+@media (min-width: 768px) {
+    .bottom-bar-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+        align-items: center; /* Vertically center content */
+        gap: 0; 
+    }
+    
+    /* FIX: Explicitly target the children and ensure placement */
+    
+    /* Column 1 (Empty Placeholder) - Ensure it takes space */
+    .bottom-bar-content > div:nth-child(1) {
+        grid-column: 1 / 2;
+        min-height: 1px; 
+    }
+
+    /* Column 2 (Back to Top) - Center Alignment */
+    .bottom-bar-center {
+        grid-column: 2 / 3;
+        text-align: center; 
+    }
+
+    /* Column 3 (Copyright) - Right Alignment */
+    .bottom-bar-right {
+        grid-column: 3 / 4;
+        text-align: right; 
+    }
+}
+
+
+/* Style the link/text itself */
+.footer-bottom-bar a, .footer-bottom-bar p {
+    color: white; /* Ensure text color is applied */
+    text-decoration: none;
+    transition: text-decoration 0.2s;
+    margin: 0; 
+    display: block; 
+    font-size: 0.95rem;
+    font-weight: 250; 
+}
+
+.footer-bottom-bar a:hover {
+    text-decoration: underline;
+}

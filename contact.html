@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Su Business Consultancy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <header class="main-header">
+       <a href="index.html" class="logo-link">
+            <div class="logo-container">
+            <div class="logo">
+                <img src="su_blue-logo-only.png" alt="Su Business Consultancy Logo">
+            </div>
+            <div class="logo-tagline">
+                Business<br>Consultancy
+            </div>
+        </div>
+       </a>
+
+        <div class="menu-group"> 
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="design-portfolio.html">Design Portfolio</a></li>
+                    <li><a href="clients.html">Clients</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-contact">CONTACT US<i data-lucide="arrow-right"></i></a>
+        </div>
+    </header>
+
+    <section class="about-content-wrapper section-offset">
+
+        <div class="about-row split-section">
+            
+            <div class="split-contact-text-container">
+                <h1>CONTACT US</h1>
+                <h2>Your route to global expansion starts with <span class="accent-company-name">SU</span>.</h2>
+                <p>Tell us what you need and we'll get back to you on how we can help you.</p>
+                <br>
+                <form class="contact-form" id="contact-form" onsubmit="submitForm(event)">
+                    
+                    <!-- WRAPPER: Contains all the input fields and the SEND button -->
+                    <div id="form-fields">
+                        <!-- 2-COLUMN GRID SECTION -->
+                        <div class="form-grid-container">
+                            
+                            <div>
+                                <label for="fname">First name:</label>
+                                <input type="text" id="fname" name="fname" required>
+                            </div>
+                            
+                            <div>
+                                <label for="lname">Last name:</label>
+                                <input type="text" id="lname" name="lname" required>
+                            </div>
+                            
+                            <div>
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div>
+                                <label for="subject">Subject:</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+
+                        </div>
+                        <!-- FULL-WIDTH MESSAGE TEXTAREA -->
+                        <div class="form-full-width">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <!-- FULL-WIDTH BUTTON -->
+                        <div class="form-full-width">
+                            <input type="submit" value="SEND MESSAGE" class="btn-submit">
+                        </div>
+                    </div>
+                    
+                    <!-- SUCCESS MESSAGE BLOCK (Initially hidden using inline style for guaranteed function) -->
+                    <div id="success-message" style="display: none; text-align: center; padding: 40px; background-color: #f0f8ff; border: 1px solid #00b8d2; border-radius: 8px;">
+                        <div class="success-content">
+                            <!-- Icon is now wrapped in a div -->
+                            <div style="margin-bottom: 15px;">
+                                <svg data-lucide="check-circle" style="width: 50px; height: 50px; color: #00b8d2;"></svg>
+                            </div>
+                            <h3>Message Sent Successfully!</h3>
+                            <p>Thank you for reaching out. We have received your inquiry and will be in touch as soon as possible.</p>
+                        </div>
+                    </div>
+
+                </form>
+
+                <!-- REQUIRED JAVASCRIPT LOGIC -->
+                <script>
+                    function submitForm(event) {
+                        // Prevents the page from reloading
+                        event.preventDefault(); 
+
+                        const formFields = document.getElementById('form-fields');
+                        const successMessage = document.getElementById('success-message');
+                        const form = document.getElementById('contact-form');
+
+                        // Hide the form inputs and button
+                        formFields.style.display = 'none';
+
+                        // Show the success message block
+                        successMessage.style.display = 'block';
+
+                        // Clear the form data
+                        form.reset();
+                        
+                        // This is necessary if you are using Lucide icons and haven't called it yet
+                        if (typeof lucide !== 'undefined') {
+                            lucide.createIcons();
+                        }
+                    }
+                </script>
+
+            </div>
+
+            <div class="split-contact-image-container">
+                <img src="fish-swimming.jpg.avif" alt="Fish Swimming">
+            </div>
+            
+        </div>
+
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-content">
+
+            <!-- COLUMN 1: Logo -->
+            <div class="footer-logo">
+                <!-- Placeholder SVG to mimic the striped SU logo -->
+                <img src="su-consultancy-logo_2024-revamp_DARK-BLUE.svg" alt="SU Consultancy Logo" style="width: 200%; height: auto; display: block;">
+            </div>
+
+            <!-- COLUMN 2: Navigation Links -->
+            <div class="footer-column">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="design-portfolio.html">Design Portfolio</a></li>
+                    <li><a href="clients.html">Clients</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="#">Audio Consultancy</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 3: Contact & Socials -->
+            <div class="footer-column">
+                <div class="footer-heading">CONTACT</div>
+                <p style="margin-bottom: 1.5rem;">info@su-consultancy.com</p>
+                
+                <div class="footer-heading">SOCIALS</div>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 4: Call to Action -->
+            <div class="cta-column">
+                <div class="footer-heading">INQUIRIES</div>
+                <p style="margin-bottom: 0.5rem;">Looking to get a quote?</p>
+                <a href="contact.html" class="btn-contact">CONTACT US<i data-lucide="arrow-right"></i></a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- BOTTOM BAR: Back to Top & Copyright -->
+    <div class="footer-bottom-bar">
+        <div class="bottom-bar-content">
+            <!-- COLUMN 1 (LEFT): Placeholder to reserve space -->
+            <div></div>
+            
+            <!-- COLUMN 2 (CENTER): Back to Top link -->
+            <div class="bottom-bar-center">
+                <!-- Kept the ID for the external script -->
+                <a id="back-to-top-link" href="javascript:void(0)">Back to Top</a> 
+            </div>
+            
+            <!-- COLUMN 3 (RIGHT): Copyright text -->
+            <div class="bottom-bar-right">
+                <p>
+                    &copy; 2025 by Umut Yelbasi for Su Business Consultancy Ltd
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 2. The NEW smooth scroll script file -->
+    <script src="js/smoothScroll.js"></script>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
