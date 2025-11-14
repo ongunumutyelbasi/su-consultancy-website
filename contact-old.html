@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Su Business Consultancy</title>
+    <title>About Us | Su Business Consultancy</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
@@ -45,8 +45,6 @@
                 <h2>Your route to global expansion starts with <span class="accent-company-name">SU</span>.</h2>
                 <p>Tell us what you need and we'll get back to you on how we can help you.</p>
                 <br>
-                
-                <!-- FORM: NO action or method attributes, JS handles submission -->
                 <form class="contact-form" id="contact-form" onsubmit="submitForm(event)">
                     
                     <!-- WRAPPER: Contains all the input fields and the SEND button -->
@@ -82,14 +80,14 @@
                         </div>
                         <!-- FULL-WIDTH BUTTON -->
                         <div class="form-full-width">
-                            <!-- Added ID for easier JS manipulation -->
-                            <input type="submit" value="SEND MESSAGE" class="btn-submit" id="submit-button">
+                            <input type="submit" value="SEND MESSAGE" class="btn-submit">
                         </div>
                     </div>
                     
-                    <!-- SUCCESS MESSAGE BLOCK (Initially hidden) -->
+                    <!-- SUCCESS MESSAGE BLOCK (Initially hidden using inline style for guaranteed function) -->
                     <div id="success-message" style="display: none; text-align: center; padding: 40px; background-color: #f0f8ff; border: 1px solid #00b8d2; border-radius: 8px;">
                         <div class="success-content">
+                            <!-- Icon is now wrapped in a div -->
                             <div style="margin-bottom: 15px;">
                                 <svg data-lucide="check-circle" style="width: 50px; height: 50px; color: #00b8d2;"></svg>
                             </div>
@@ -97,87 +95,32 @@
                             <p>Thank you for reaching out. We have received your inquiry and will be in touch as soon as possible.</p>
                         </div>
                     </div>
+
                 </form>
 
-                <!-- REQUIRED JAVASCRIPT LOGIC FOR AJAX SUBMISSION -->
+                <!-- REQUIRED JAVASCRIPT LOGIC -->
                 <script>
-                    // 🚨 CRITICAL: REPLACE THIS URL with your actual Google Form submission endpoint
-                    const GOOGLE_FORM_ENDPOINT = "https://docs.google.com/forms/d/e/1FAIpQLScQZyvEtpq6lo7tts1uoN76JjK7xqIk6_kHT1jpVGuyeW1vYQ/formResponse";
-
-                    /**
-                     * IMPORTANT: Google Form Entry IDs
-                     * These IDs map your form field names (fname, email, etc.) to the hidden input IDs Google expects.
-                     */
-                    const FIELD_MAPPING = {
-                        'fname': 'entry.2001854473',
-                        'lname': 'entry.1159878394',
-                        'email': 'entry.580044375',
-                        'subject': 'entry.568529388',
-                        'message': 'entry.674454186'
-                    };
-
-
                     function submitForm(event) {
-                        // 1. Stop the default browser submission/redirection
-                        event.preventDefault();
+                        // Prevents the page from reloading
+                        event.preventDefault(); 
 
+                        const formFields = document.getElementById('form-fields');
+                        const successMessage = document.getElementById('success-message');
                         const form = document.getElementById('contact-form');
-                        const formData = new FormData(form);
-                        const formFieldsDiv = document.getElementById('form-fields');
-                        const successMessageDiv = document.getElementById('success-message');
-                        const submitButton = document.getElementById('submit-button');
-                        const urlEncodedData = new URLSearchParams();
+
+                        // Hide the form inputs and button
+                        formFields.style.display = 'none';
+
+                        // Show the success message block
+                        successMessage.style.display = 'block';
+
+                        // Clear the form data
+                        form.reset();
                         
-                        // 2. Map HTML names to Google Entry IDs
-                        for (const [htmlName, entryId] of Object.entries(FIELD_MAPPING)) {
-                            const value = formData.get(htmlName);
-                            if (value) {
-                                urlEncodedData.append(entryId, value);
-                            }
+                        // This is necessary if you are using Lucide icons and haven't called it yet
+                        if (typeof lucide !== 'undefined') {
+                            lucide.createIcons();
                         }
-
-                        // 3. Show loading state
-                        submitButton.value = "SENDING...";
-                        submitButton.disabled = true;
-                        submitButton.style.backgroundColor = ''; // Clear temporary styles
-
-                        // 4. Send data via AJAX (fetch)
-                        fetch(GOOGLE_FORM_ENDPOINT, {
-                            method: 'POST',
-                            mode: 'no-cors', // Critical for static sites to avoid CORS preflight issues
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: urlEncodedData.toString()
-                        })
-                        .then(() => {
-                            // If the fetch completes without a network error, we assume Google received the data.
-
-                            // 5. Success: Hide the form and show the success message
-                            formFieldsDiv.style.display = 'none';
-                            successMessageDiv.style.display = 'block';
-                            form.reset();
-                            
-                            // Ensure Lucide icons are rendered for the checkmark
-                            if (typeof lucide !== 'undefined') {
-                                lucide.createIcons();
-                            }
-                        })
-                        .catch(error => {
-                            // Handle network errors by logging and providing temporary button feedback (alert() is forbidden)
-                            console.error('Submission failed: A network error occurred. Please check your connection and try again.', error);
-                            
-                            // Visual feedback for error
-                            submitButton.value = "FAILED - Try Again";
-                            submitButton.style.backgroundColor = 'red'; 
-                            
-                            // Reset loading state after 3 seconds
-                            setTimeout(() => {
-                                submitButton.value = "SEND MESSAGE";
-                                submitButton.disabled = false;
-                                submitButton.style.backgroundColor = ''; // Revert style
-                            }, 3000);
-                        });
                     }
                 </script>
 
@@ -196,6 +139,7 @@
 
             <!-- COLUMN 1: Logo -->
             <div class="footer-logo">
+                <!-- Placeholder SVG to mimic the striped SU logo -->
                 <img src="su-consultancy-logo_2024-revamp_DARK-BLUE.svg" alt="SU Consultancy Logo" style="width: 200%; height: auto; display: block;">
             </div>
 
@@ -242,6 +186,7 @@
             
             <!-- COLUMN 2 (CENTER): Back to Top link -->
             <div class="bottom-bar-center">
+                <!-- Kept the ID for the external script -->
                 <a id="back-to-top-link" href="javascript:void(0)">Back to Top</a> 
             </div>
             
