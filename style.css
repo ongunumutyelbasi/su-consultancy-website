@@ -814,18 +814,18 @@ gap: 20px;
 }
 
 .blog-posts-card p {
-text-align: left;
-color: var(--text-soft-dark);
-line-height: 1.2;
-font-weight: 250;
-/* 💡 NEW: Allow paragraph to grow and shrink to fit remaining space */
-flex-grow: 1;
-flex-shrink: 1;
-/* If paragraph itself might overflow and you want ellipsis for it too */
-/* overflow: hidden;
-display: -webkit-box;
--webkit-line-clamp: 3;
--webkit-box-orient: vertical; */
+    text-align: left;
+    color: var(--text-soft-dark);
+    line-height: 1.2;
+    font-weight: 250;
+    /* 💡 NEW: Allow paragraph to grow and shrink to fit remaining space */
+    flex-grow: 1;
+    flex-shrink: 1;
+    /* If paragraph itself might overflow and you want ellipsis for it too */
+    /* overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; */
 }
 
 .card-image {
@@ -1240,6 +1240,13 @@ background-color: var(--background-light);
     margin-bottom: 5px;
     color: var(--text-soft-dark);
     font-size: 0.95em;
+}
+
+#services-contact-form label {
+    font-weight: 250; 
+    color: white; 
+    font-size: 0.95em; 
+    margin-bottom: 5px;
 }
 
 .contact-form input[type="text"],
