@@ -556,14 +556,14 @@ margin: 0 auto;
     background-image: linear-gradient(to right, #242865, #67cce4);
     color: var(--text-light);
     text-align: center;
-    padding: 25px 25px;
+    padding: 50px 50px;
 }
 
 .services-contact-section h2 {
     text-align: center;
-    font-size: 2.0em;
+    font-size: 3.0em;
     color: white;
-    font-weight: 530;
+    font-weight: 450;
     /* margin-bottom: 50px; */
 }
 
