@@ -1288,26 +1288,6 @@ background-color: var(--background-light);
     opacity: 0.9;
 }
 
-.btn-submit-services {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(to right, #67cce4, #67cce4);
-    color: var(--text-light);
-    text-decoration: none;
-    padding: 12px 30px;
-    border-radius: 999px;
-    border: none;
-    font-weight: 550;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.btn-submit-services:hover {
-    opacity: 0.9;
-}
-
 #form-fields {
     /* Explicitly make the internal container a flex column */
     display: flex;
