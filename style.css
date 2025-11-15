@@ -573,6 +573,12 @@ margin: 0 auto;
     padding: 0px 0px;
 }
 
+.contact-form-wrapper h2 {
+    color: white;
+    font-size: 2.5em;
+    font-weight: 530;
+}
+
 
 /* ------------- CLIENTS PAGE ---------------------------------------- */
 
