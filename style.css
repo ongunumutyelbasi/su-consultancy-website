@@ -568,7 +568,7 @@ margin: 0 auto;
 }
 
 .contact-form-wrapper {
-    color: var(--text-light);
+    /* color: white; */
     text-align: left;
     padding: 0px 0px;
 }
