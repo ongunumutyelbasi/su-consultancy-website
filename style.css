@@ -1288,6 +1288,15 @@ background-color: var(--background-light);
     opacity: 0.9;
 }
 
+#services-submit-button {
+    /* Override the background-image with a solid color, 
+       or a completely different gradient */
+    background: #00b8d2; /* Example: A solid light blue color */
+    
+    /* If you want a new gradient, you could use this instead: */
+    /* background-image: linear-gradient(to right, #00b8d2, #008c9e); */
+}
+
 #form-fields {
     /* Explicitly make the internal container a flex column */
     display: flex;
