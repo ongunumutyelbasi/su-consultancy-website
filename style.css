@@ -556,7 +556,7 @@ margin: 0 auto;
     background-image: linear-gradient(to right, #242865, #67cce4);
     color: var(--text-light);
     text-align: center;
-    padding: 20px 80px 25px 80px;
+    padding: 20px 80px 35px 80px;
 }
 
 .services-contact-section h2 {
@@ -564,7 +564,7 @@ margin: 0 auto;
     font-size: 3.0em;
     color: white;
     font-weight: 450;
-    /* margin-bottom: 50px; */
+    margin-bottom: 20px;
 }
 
 .contact-form-wrapper {
@@ -1299,6 +1299,7 @@ background-color: var(--background-light);
     /* Override the background-image with a solid color, or a completely different gradient */
     background-image: none;
     background-color: #00b8d2;
+    border: 1px solid var(--accent-color);
     
     /* If you want a new gradient, you could use this instead: */
     /* background-image: linear-gradient(to right, #00b8d2, #008c9e); */
