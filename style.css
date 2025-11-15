@@ -556,7 +556,7 @@ margin: 0 auto;
     background-image: linear-gradient(to right, #242865, #67cce4);
     color: var(--text-light);
     text-align: center;
-    padding: 25px 50px;
+    padding: 25px 25px;
 }
 
 .services-contact-section h2 {
