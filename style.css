@@ -568,7 +568,7 @@ margin: 0 auto;
 }
 
 .contact-form-wrapper {
-    background-image: linear-gradient(to right, #242865, #67cce4);
+    /* background-image: linear-gradient(to right, #242865, #67cce4); */
     color: var(--text-light);
     text-align: left;
     padding: 0px 0px;
