@@ -1291,7 +1291,7 @@ background-color: var(--background-light);
 #services-submit-button {
     /* Override the background-image with a solid color, or a completely different gradient */
     background-image: none;
-    background: #00b8d2;
+    background-color: #00b8d2;
     
     /* If you want a new gradient, you could use this instead: */
     /* background-image: linear-gradient(to right, #00b8d2, #008c9e); */
