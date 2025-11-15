@@ -1292,7 +1292,7 @@ background-color: var(--background-light);
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--accent-color);
+    background-image: linear-gradient(to right, #67cce4, #67cce4);
     color: var(--text-light);
     text-decoration: none;
     padding: 12px 30px;
@@ -1302,6 +1302,10 @@ background-color: var(--background-light);
     font-size: 1.1em;
     cursor: pointer;
     transition: opacity 0.3s ease;
+}
+
+.btn-submit-services:hover {
+    opacity: 0.9;
 }
 
 #form-fields {
