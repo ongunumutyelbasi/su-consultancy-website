@@ -216,6 +216,87 @@
         lucide.createIcons();
     </script>
 
+    <script>
+        // 🚨 CRITICAL: REPLACE THIS URL with your actual Google Form submission endpoint
+        const GOOGLE_FORM_ENDPOINT = "https://docs.google.com/forms/d/e/1FAIpQLScQZyvEtpq6lo7tts1uoN76JjK7xqIk6_kHT1jpVGuyeW1vYQ/formResponse";
+
+        /**
+         * IMPORTANT: Google Form Entry IDs
+         * These IDs map your form field names (fname, email, etc.) to the hidden input IDs Google expects.
+         */
+        const FIELD_MAPPING = {
+            'fname': 'entry.1284157107',
+            'lname': 'entry.591525161',
+            'email': 'entry.1747904640',
+            'subject': 'entry.1043822185',
+            'message': 'entry.220049518'
+        };
+
+
+        function submitForm(event) {
+            // 1. Stop the default browser submission/redirection
+            event.preventDefault();
+
+            const form = document.getElementById('contact-form');
+            const formData = new FormData(form);
+            const formFieldsDiv = document.getElementById('form-fields');
+            const successMessageDiv = document.getElementById('success-message');
+            const submitButton = document.getElementById('submit-button');
+            const urlEncodedData = new URLSearchParams();
+            
+            // 2. Map HTML names to Google Entry IDs
+            for (const [htmlName, entryId] of Object.entries(FIELD_MAPPING)) {
+                const value = formData.get(htmlName);
+                if (value) {
+                    urlEncodedData.append(entryId, value);
+                }
+            }
+
+            // 3. Show loading state
+            submitButton.value = "SENDING...";
+            submitButton.disabled = true;
+            submitButton.style.backgroundColor = ''; // Clear temporary styles
+
+            // 4. Send data via AJAX (fetch)
+            fetch(GOOGLE_FORM_ENDPOINT, {
+                method: 'POST',
+                mode: 'no-cors', // Critical for static sites to avoid CORS preflight issues
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: urlEncodedData.toString()
+            })
+            .then(() => {
+                // If the fetch completes without a network error, we assume Google received the data.
+
+                // 5. Success: Hide the form and show the success message
+                formFieldsDiv.style.display = 'none';
+                successMessageDiv.style.display = 'block';
+                form.reset();
+                
+                // Ensure Lucide icons are rendered for the checkmark
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            })
+            .catch(error => {
+                // Handle network errors by logging and providing temporary button feedback (alert() is forbidden)
+                console.error('Submission failed: A network error occurred. Please check your connection and try again.', error);
+                
+                // Visual feedback for error
+                submitButton.value = "FAILED - Try Again";
+                submitButton.style.backgroundColor = 'red'; 
+                
+                // Reset loading state after 3 seconds
+                setTimeout(() => {
+                    submitButton.value = "SEND MESSAGE";
+                    submitButton.disabled = false;
+                    submitButton.style.backgroundColor = ''; // Revert style
+                }, 3000);
+            });
+        }
+    </script>
+
 </body>
 
 </html>
