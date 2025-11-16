@@ -237,11 +237,11 @@
             // 1. Stop the default browser submission/redirection
             event.preventDefault();
 
-            const form = document.getElementById('contact-form');
+            const form = document.getElementById('services-contact-form');
             const formData = new FormData(form);
             const formFieldsDiv = document.getElementById('form-fields');
             const successMessageDiv = document.getElementById('success-message');
-            const submitButton = document.getElementById('submit-button');
+            const submitButton = document.getElementById('services-submit-button');
             const urlEncodedData = new URLSearchParams();
             
             // 2. Map HTML names to Google Entry IDs
