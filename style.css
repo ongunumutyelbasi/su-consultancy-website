@@ -1300,7 +1300,7 @@ background-color: var(--background-light);
     background-image: none;
     background-color: #00b8d2;
     border: 1px solid var(--accent-color);
-    
+    transition: background-color 0.3s ease;
     /* If you want a new gradient, you could use this instead: */
     /* background-image: linear-gradient(to right, #00b8d2, #008c9e); */
 }
