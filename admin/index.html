@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex" />
     <title>Su Business Consultancy | Content Manager</title>
     
     <base href="/su-consultancy-website/"> 
@@ -12,5 +9,13 @@
 <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     
-    </body>
+    <script>
+      CMS.init({
+        config: {
+          // Path must be absolute from the GitHub Pages domain root (ongunumutyelbasi.github.io)
+          config_file: '/su-consultancy-website/admin/config.yml' 
+        }
+      });
+    </script>
+</body>
 </html>
