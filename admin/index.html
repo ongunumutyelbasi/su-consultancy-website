@@ -10,9 +10,10 @@
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     
     <script>
+      // The default behavior when no config is passed is to look for config.yml.
+      // We will override the config file location with the absolute path.
       CMS.init({
         config: {
-          // Path must be absolute from the GitHub Pages domain root (ongunumutyelbasi.github.io)
           config_file: '/su-consultancy-website/admin/config.yml' 
         }
       });
