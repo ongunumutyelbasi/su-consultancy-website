@@ -7,7 +7,6 @@ backend:
   base_url: https://decap-auth-proxy.umutyelbasi.workers.dev
   auth_type: implicit
   app_id: Ov23li0sOKN0lFYHAuGm
-  auth_url: https://decap-auth-proxy.umutyelbasi.workers.dev/auth/github
 
 # 2. MEDIA MANAGEMENT
 # Define where images uploaded in the CMS should be stored in your repo.
