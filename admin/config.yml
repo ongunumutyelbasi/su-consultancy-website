@@ -4,7 +4,7 @@ backend:
   name: github
   repo: ongunumutyelbasi/su-consultancy-website
   branch: main # The branch to commit content changes to
-  base_url: https://decap-auth-proxy.umutyelbasi.workers.dev
+  # base_url: https://decap-auth-proxy.umutyelbasi.workers.dev
   auth_type: implicit
   app_id: Ov23li0sOKN0lFYHAuGm
 
