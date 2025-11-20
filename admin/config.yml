@@ -1,0 +1,29 @@
+# 1. BACKEND CONFIGURATION
+# This tells Decap CMS how to connect to your Git repository.
+backend:
+  name: github
+  repo: ongunumutyelbasi/su-consultancy-website
+  branch: main # The branch to commit content changes to
+
+auth_type: implicit
+app_id: Ov23li0sOKN0lFYHAuGm
+
+auth_url: https://decap-auth-proxy.umutyelbasi.workers.dev/auth/github
+
+# 2. MEDIA MANAGEMENT
+# Define where images uploaded in the CMS should be stored in your repo.
+media_folder: "assets/img/uploads" # Path to media files in your Git repo
+public_folder: "/assets/img/uploads" # The path used in the final image <src> tag
+
+# 3. COLLECTIONS (Define Content Types)
+collections:
+  - name: "blog" # Used internally and in routes
+    label: "Blog Posts" # Label displayed in the CMS UI
+    folder: "_posts/blog" # The folder where Markdown files will be created
+    create: true # Allow users to create new posts
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Format of the filename
+    fields: # The fields that will appear in the editor
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"} # Enables the rich-text editor
