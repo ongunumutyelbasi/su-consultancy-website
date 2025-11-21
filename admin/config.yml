@@ -1,16 +1,17 @@
 # 1. BACKEND CONFIGURATION
 backend:
-  name: git-gateway  # Restored to 'github'
+  name: git-gateway
   repo: ongunumutyelbasi/su-consultancy-website
-  branch: main 
-  # auth_type: implicit
-  # app_id: Ov23li0sOKN0lFYHAuGm
+  branch: main
+  # 💡 CRITICAL FIX: Point the CMS to your Netlify site for Auth
+  identity_url: "https://su-consultancy-website.netlify.app/.netlify/identity"
+  gateway_url: "https://su-consultancy-website.netlify.app/.netlify/git/github"
 
 # 2. MEDIA MANAGEMENT
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
 
-# 3. COLLECTIONS (Keep your current collections section)
+# 3. COLLECTIONS
 collections:
   - name: "blog"
     label: "Blog Posts"
