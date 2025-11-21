@@ -2,19 +2,15 @@
 backend:
   name: github
   repo: ongunumutyelbasi/su-consultancy-website
-  branch: main
-  auth_type: implicit 
-  app_id: Ov23li0sOKN0lFYHAuGm
+  branch: main 
+auth_type: implicit
+app_id: Ov23li0sOKN0lFYHAuGm
 
-# 2. MEDIA MANAGEMENT
+# 2. MEDIA MANAGEMENT (Must use quotes for path stability)
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
 
-# 3. GLOBAL CONFIGURATION (CRITICAL ADDITIONS)
-publish_mode: editorial_workflow # Sometimes required for implicit auth flow stability
-relative_url: true               # Forces internal links to be relative (key fix)
-
-# 4. COLLECTIONS 
+# 3. COLLECTIONS (Minimal required structure)
 collections:
   - name: "blog"
     label: "Blog Posts"
