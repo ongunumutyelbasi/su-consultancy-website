@@ -5,7 +5,7 @@ backend:
   branch: main
   # 💡 CRITICAL FIX: Point the CMS to your Netlify site for Auth
   identity_url: "https://su-consultancy-website.netlify.app/.netlify/identity"
-  gateway_url: "https://su-consultancy-website.netlify.app/.netlify/git/github"
+  gateway_url: "https://su-consultancy-website.netlify.app/.netlify/git"
 
 # 2. MEDIA MANAGEMENT
 media_folder: "assets/img/uploads"
