@@ -1,5 +1,5 @@
 ---
-title: Values & Intercultural Learning
+title: Values and Intercultural Learning
 date: 2020-10-02T08:00:00.000+01:00
 thumbnail: https://static.wixstatic.com/media/3b0fa3_21e0dadc7e01452bbf68c1d8dd64ed36~mv2.jpg/v1/fill/w_700,h_588,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3b0fa3_21e0dadc7e01452bbf68c1d8dd64ed36~mv2.jpg
 ---
