@@ -1,13 +1,10 @@
-# 💡 CRITICAL FIX: Explicitly define the site's root URL
-base_url: https://ongunumutyelbasi.github.io/su-consultancy-website/
-
 # 1. BACKEND CONFIGURATION
 backend:
-  name: github  # Restored to 'github'
+  name: git-gateway  # Restored to 'github'
   repo: ongunumutyelbasi/su-consultancy-website
   branch: main 
-  auth_type: implicit
-  app_id: Ov23li0sOKN0lFYHAuGm
+  # auth_type: implicit
+  # app_id: Ov23li0sOKN0lFYHAuGm
 
 # 2. MEDIA MANAGEMENT
 media_folder: "assets/img/uploads"

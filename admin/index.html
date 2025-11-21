@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Su Business Consultancy | Content Manager</title>
+    
     <base href="/su-consultancy-website/"> 
     
 </head>
 <body>
+    
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
@@ -12,18 +18,21 @@
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     
     <script>
-      // Load the configuration file directly from the absolute URL
       fetch('https://raw.githubusercontent.com/ongunumutyelbasi/su-consultancy-website/main/admin/config.yml')
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to fetch config.yml (Status: ${response.status})`);
+            }
+            return response.text();
+        })
         .then(text => {
-          // Parse the YAML text into a JavaScript object
           const config = window.jsyaml.load(text);
-          // Initialize the CMS with the fully loaded and parsed object
           CMS.init({ config });
         })
         .catch(error => {
           console.error('Failed to load and initialize CMS configuration:', error);
         });
     </script>
+    
 </body>
 </html>
