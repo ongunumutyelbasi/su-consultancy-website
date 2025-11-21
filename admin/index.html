@@ -12,6 +12,16 @@
 <body>
     
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <script>
+      // Tell the widget where the Identity API lives (your Netlify domain)
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.setLocale('en'); // Optional: sets language
+        window.netlifyIdentity.init({
+          APIUrl: 'https://su-consultancy-website.netlify.app/.netlify/identity'
+        });
+      }
+    </script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     
