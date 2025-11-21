@@ -7,42 +7,34 @@
     <title>Su Business Consultancy | Content Manager</title>
     
     <base href="/su-consultancy-website/"> 
-    
 </head>
 <body>
-    
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <div id="nc-root"></div>
 
-    <script>
-      // Tell the widget where the Identity API lives (your Netlify domain)
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.setLocale('en'); // Optional: sets language
-        window.netlifyIdentity.init({
-          APIUrl: 'https://su-consultancy-website.netlify.app/.netlify/identity'
-        });
-      }
-    </script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     
     <script>
+      // Initialize Identity Widget
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.init({
+          APIUrl: 'https://su-consultancy-website.netlify.app/.netlify/identity'
+        });
+      }
+
+      // Load Config & Init CMS
       fetch('https://raw.githubusercontent.com/ongunumutyelbasi/su-consultancy-website/main/admin/config.yml')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to fetch config.yml (Status: ${response.status})`);
-            }
-            return response.text();
-        })
+        .then(response => response.text())
         .then(text => {
           const config = window.jsyaml.load(text);
           CMS.init({ config });
         })
         .catch(error => {
-          console.error('Failed to load and initialize CMS configuration:', error);
+          console.error('CMS Init Error:', error);
         });
     </script>
-    
 </body>
 </html>
