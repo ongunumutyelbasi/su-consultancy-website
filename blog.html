@@ -1,14 +1,122 @@
----
-layout: default
-title: Blog
-permalink: /blog/
----
-<h1>All Blog Posts</h1>
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <p>{{ post.date | date_to_string }}</p>
-    </li>
-  {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Su Business Consultancy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <header class="main-header">
+       <a href="index.html" class="logo-link">
+            <div class="logo-container">
+            <div class="logo">
+                <img src="su_blue-logo-only.png" alt="Su Business Consultancy Logo">
+            </div>
+            <div class="logo-tagline">
+                Business<br>Consultancy
+            </div>
+        </div>
+       </a>
+
+        <div class="menu-group"> 
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="design-portfolio.html" class="active">Design Portfolio</a></li>
+                    <li><a href="clients.html">Clients</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html" class="btn-contact">CONTACT US<i data-lucide="arrow-right"></i></a>
+        </div>
+    </header>
+
+    <section class="page-title-section section-offset">
+        <h1>Design Portfolio</h1>
+        <p>Let us bring your vision to life</p>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-content">
+
+            <!-- COLUMN 1: Logo -->
+            <div class="footer-logo">
+                <!-- Placeholder SVG to mimic the striped SU logo -->
+                <img src="su-consultancy-logo_2024-revamp_DARK-BLUE.svg" alt="SU Consultancy Logo" style="width: 200%; height: auto; display: block;">
+            </div>
+
+            <!-- COLUMN 2: Navigation Links -->
+            <div class="footer-column">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="design-portfolio.html">Design Portfolio</a></li>
+                    <li><a href="clients.html">Clients</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="#">Audio Consultancy</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 3: Contact & Socials -->
+            <div class="footer-column">
+                <div class="footer-heading">CONTACT</div>
+                <p style="margin-bottom: 1.5rem;"><a href="mailto:info@su-consultancy.com">info@su-consultancy.com</a></p>
+                
+                <div class="footer-heading">SOCIALS</div>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 4: Call to Action -->
+            <div class="cta-column">
+                <div class="footer-heading">INQUIRIES</div>
+                <p style="margin-bottom: 0.5rem;">Looking to get a quote?</p>
+                <a href="contact.html" class="btn-contact">CONTACT US<i data-lucide="arrow-right"></i></a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- BOTTOM BAR: Back to Top & Copyright -->
+    <div class="footer-bottom-bar">
+        <div class="bottom-bar-content">
+            <!-- COLUMN 1 (LEFT): Placeholder to reserve space -->
+            <div></div>
+            
+            <!-- COLUMN 2 (CENTER): Back to Top link -->
+            <div class="bottom-bar-center">
+                <!-- Kept the ID for the external script -->
+                <a id="back-to-top-link" href="javascript:void(0)">Back to Top</a> 
+            </div>
+            
+            <!-- COLUMN 3 (RIGHT): Copyright text -->
+            <div class="bottom-bar-right">
+                <p>
+                    &copy; 2025 by Umut Yelbasi for Su Business Consultancy Ltd
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. Your existing script file -->
+    <script src="script.js"></script> 
+    
+    <!-- 2. The NEW smooth scroll script file -->
+    <script src="js/smoothScroll.js"></script>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
