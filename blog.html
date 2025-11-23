@@ -1,3 +1,8 @@
+---
+layout: default
+permalink: /blog/
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +44,31 @@
     <section class="page-title-section section-offset">
         <h1>Blog</h1>
     </section>
+
+    <section class="blog-index-section section-offset">
+        <h1>Blog</h1>
+        
+        <div class="posts-list-container">
+            {% for post in site.posts %}
+                <article class="blog-post-summary">
+                    <h2>
+                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    </h2>
+                    
+                    <p class="post-meta">
+                        Published on: {{ post.date | date: "%B %d, %Y" }}
+                    </p>
+                    
+                    {{ post.excerpt | strip_html | truncatewords: 30 }}
+                    
+                    <a href="{{ post.url | relative_url }}" class="read-more">Read more...</a>
+                </article>
+                <hr>
+            {% endfor %}
+            </div>
+    </section>
+
+    ```
 
     <footer class="footer-section">
         <div class="footer-content">
