@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | Su Business Consultancy</title> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <header class="main-header">
+       <a href="index.html" class="logo-link">
+            <div class="logo-container">
+            <div class="logo">
+                <img src="su_blue-logo-only.png" alt="Su Business Consultancy Logo">
+            </div>
+            <div class="logo-tagline">
+                Business<br>Consultancy
+            </div>
+        </div>
+       </a>
+
+        <div class="menu-group"> 
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="design-portfolio.html">Design Portfolio</a></li>
+                    <li><a href="clients.html">Clients</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html" class="btn-contact">CONTACT US<i data-lucide="arrow-right"></i></a>
+        </div>
+    </header>
+
+    {{ content }}
+
+
+    <footer class="footer-section">
+        <div class="footer-content">
+
+            <div class="footer-logo">
+                <img src="su-consultancy-logo_2024-revamp_DARK-BLUE.svg" alt="SU Consultancy Logo" style="width: 200%; height: auto; display: block;">
+            </div>
+
+            <div class="footer-column">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="design-portfolio.html">Design Portfolio</a></li>
+                    <li><a href="clients.html">Clients</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="#">Audio Consultancy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <div class="footer-heading">CONTACT</div>
+                <p style="margin-bottom: 1.5rem;"><a href="mailto:info@su-consultancy.com">info@su-consultancy.com</a></p>
+                
+                <div class="footer-heading">SOCIALS</div>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+
+            <div class="cta-column">
+                <div class="footer-heading">INQUIRIES</div>
+                <p style="margin-bottom: 0.5rem;">Looking to get a quote?</p>
+                <a href="contact.html" class="btn-contact">CONTACT US<i data-lucide="arrow-right"></i></a>
+            </div>
+
+        </div>
+    </footer>
+
+    <div class="footer-bottom-bar">
+        <div class="bottom-bar-content">
+            <div></div>
+            
+            <div class="bottom-bar-center">
+                <a id="back-to-top-link" href="javascript:void(0)">Back to Top</a> 
+            </div>
+            
+            <div class="bottom-bar-right">
+                <p>
+                    &copy; 2025 by Umut Yelbasi for Su Business Consultancy Ltd
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+    
+    <script src="js/smoothScroll.js"></script>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
